@@ -1,4 +1,3 @@
-let translate = require('npm-address-translator');
 let axios = require('axios');
 
 class BitcoinCashRPC {
@@ -435,18 +434,6 @@ class BitcoinCashRPC {
     }
   }
 
-  translateAddress(address) {
-    let test = '[13CH][a-km-zA-HJ-NP-Z0-9]{30,33}';
-    let testRegEx = new RegExp(test, 'i');
-    if (testRegEx.test(address)) {
-      let translated = translate.translateAddress(address);
-      if (translated.origCoin == 'BTC') {
-        return translated.origAddress;
-      } else {
-        return translated.resultAddress;
-      }
-    }
-  }
 }
 
 module.exports = BitcoinCashRPC;
